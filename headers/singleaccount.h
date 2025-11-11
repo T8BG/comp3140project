@@ -1,6 +1,6 @@
 #include <iostream>
-#include "../headers/account.h"
+#include "../headers/Account.h"
 
-class singleaccount: public account{
+class SingleAccount: public Account{
 
 };

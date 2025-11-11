@@ -1,6 +1,6 @@
 #include <iostream>
-#include "../headers/account.h"
+#include "../headers/Account.h"
 
-class jointaccount: public account{
+class JointAccount: public Account{
 
 };
