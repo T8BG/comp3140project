@@ -3,9 +3,9 @@
 
 using namespace std;
 
-admin::admin(string username){
+Admin::Admin(string username){
 
 }
-admin::admin(){
+Admin::Admin(){
 
 }

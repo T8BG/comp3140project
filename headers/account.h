@@ -3,13 +3,13 @@
 
 #include <string>
 
-class account{
+class Account{
      public:
      //Parameterized Constructor
-     account(std::string username);
+     Account(std::string username);
 
      //Regular Constructor
-     account();
+     Account();
 };
 
 #endif

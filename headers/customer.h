@@ -3,16 +3,16 @@
 
 #include <string>
 
-class customer {
+class Customer {
 public:
     // Parameterized Constructor
-    customer(std::string username);
+    Customer(std::string username);
 
     // Regular Constructor
-    customer();
+    Customer();
 
     //Login function
-    bool login(string username, string password);
+    bool login(std::string username, std::string password);
 };
 
 #endif

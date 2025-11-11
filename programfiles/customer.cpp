@@ -3,9 +3,9 @@
 
 using namespace std;
 // Parameterized Constructor
-customer::customer(string username) {
+Customer::Customer(string username) {
 }
 
 // Regular Constructor
-customer::customer(){
+Customer::Customer(){
 }

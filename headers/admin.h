@@ -3,11 +3,11 @@
 
 #include <string>
 
-class admin{
+class Admin : public Account{
      //Parameterized Constructor
-     admin(std::string username);
+     Admin(std::string username);
      // Regular Constructor
-     admin();
+     Admin();
 };
 
 #endif
