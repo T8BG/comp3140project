@@ -1,11 +1,22 @@
-#include "../headers/admin.h"
-#include <iostream>
-
+#include "../headers/Admin.h"
+#include "../headers/ServiceClass/AccountServices.h"
 using namespace std;
 
-Admin::Admin(string username){
-
+// Parameterized constructor
+Admin::Admin(const std::string &adminIDValue, int passwordValue, AccountService &service)
+    : Account(),
+      adminID(adminIDValue),
+      password(passwordValue),
+      accountService(service) {
 }
-Admin::Admin(){
 
+// Methods will go below: 
+// Create an account the custoemr, uses the AccountServices class
+void Admin::createAccount(const Customer &customer) {
+    accountService.createAccount(customer);
+}
+
+// View all accounts (returns a list of all accounts)
+void Admin::viewAllAccounts() {
+    accountService.viewAllAccounts();
 }
