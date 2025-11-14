@@ -12,7 +12,7 @@ class AccountService;
 class Admin : public Account{
 public:
     // Parameterized  (changed username adminID same as UML)
-    Admin(const std::string &adminID, string password, AccountService &accountService);
+    Admin(const std::string &adminID, const std::string password, AccountService &accountService);
 
     // Create an account, pass in a customer object
     void createAccount(const Customer &customer);

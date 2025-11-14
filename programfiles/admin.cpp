@@ -3,7 +3,7 @@
 using namespace std;
 
 // Parameterized constructor
-Admin::Admin(const std::string &adminIDValue, string passwordValue, AccountService &service)
+Admin::Admin(const std::string &adminIDValue, const std::string passwordValue, AccountService &service)
     : Account(),
       adminID(adminIDValue),
       password(passwordValue),
