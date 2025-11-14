@@ -11,6 +11,32 @@ Customer::Customer()
     : name(""), customerID(""), password(""), address(""), phoneNumber(""), email(""), accountNumbers(0) {
 }
 
+//Login 
+bool Customer::login() const
+{
+    bool result = false;
+    string name;
+    string password;
+    while(true)
+    {
+        cout << "Please enter your username: ";
+        cin >> name;
+        cout << "Please enter your password: ";
+        cin >> password;
+
+        if(name == getCustomerID() && password == getPassword())
+        {
+            result = true;
+            break;
+        }
+        else
+        {
+            cout << "Your username or password is incorrect, please try again.";
+        };
+    }    
+    return result;
+}
+
 // Getters for the customer's data
 const std::string &Customer::getName() const { return name; }
 const std::string &Customer::getCustomerID() const { return customerID; }

@@ -1,5 +1,7 @@
 #include "../headers/Account.h"
 
+using namespace std;
+
 // Parameterized Constructor
 Account::Account(int accountNumber, const std::string &name)
     : accountNumber(accountNumber),
@@ -20,3 +22,4 @@ int Account::getAccountNumber() const {
 const std::string &Account::getName() const {
     return name;
 }
+

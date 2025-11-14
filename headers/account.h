@@ -15,6 +15,8 @@ public:
     int getAccountNumber() const;
     const std::string &getName() const;
 
+    
+
 private:
     int accountNumber;
     std::string name;
