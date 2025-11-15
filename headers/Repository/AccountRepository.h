@@ -14,7 +14,7 @@ public:
 
 private:
     // Vector (list) of all account objects, in the future we can save it to a file or database
-    std::vector<Account> accounts_list;
+    std::vector<Account> accountsList;
 };
 
 #endif

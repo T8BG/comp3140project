@@ -2,7 +2,7 @@
 #include "../headers/Customer.h"
 using namespace std;
 // Parameterized Constructor
-Customer::Customer(const std::string &name, const std::string &customerID, const std::string &password, const std::string &address, const std::string &phoneNumber, const std::string &email, const std::vector<int> &accountNumbers)
+Customer::Customer(const std::string &customerID, const std::string &name, const std::string &password, const std::string &address, const std::string &phoneNumber, const std::string &email, const std::vector<int> &accountNumbers)
     : name(name), customerID(customerID), password(password), address(address), phoneNumber(phoneNumber), email(email), accountNumbers(accountNumbers) {
 }
 

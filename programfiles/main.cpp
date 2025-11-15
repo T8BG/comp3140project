@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 using namespace std;
 
 #include "../headers/Admin.h"
@@ -19,7 +20,7 @@ int main() {
         "123-456-6788","test@gmail.com",initialAccounts);
 
     // Create a new admin object
-    Admin admin("Admin1", 001, accountService);
+    Admin admin("Admin1", "001", accountService);
 
     // Admin then creates an account for the customer
     admin.createAccount(customer);

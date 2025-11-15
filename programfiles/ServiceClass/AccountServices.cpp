@@ -7,14 +7,17 @@ AccountService::AccountService(AccountRepository &repository)
     : accountRepository(repository) {
 }
 
-// createAccount method, creats an account for the customer 
+// createAccount method, creates an account for the customer 
 void AccountService::createAccount(const Customer &customer) {
     int accountNumber = generateAccountNumber();
     Account newAccount(accountNumber, customer.getName());
 
     accountRepository.save(newAccount);
 
-    std::cout << "new account created for " << customer.getName() << " account number " << accountNumber << std::endl;
+    std::cout << "Account Created" << std::endl;
+    std::cout << "Account Number: " << accountNumber << std::endl;
+    std::cout << "Account Holder: " << customer.getName() << std::endl;
+    std::cout << "Customer ID: " << customer.getCustomerID() << std::endl;
 }
 
 // Simple method that just creates a new account number by adding 1 to the prevousily created number

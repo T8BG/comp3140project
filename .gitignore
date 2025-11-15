@@ -39,3 +39,24 @@
 
 # debug information files
 *.dwo
+
+# IDE settings (personal)
+.vscode/
+.idea/
+.vs/
+
+# Visual Studio build output
+Debug/
+Release/
+x64/
+x86/
+*.sdf
+*.opensdf
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build output
+bin/
+build/
