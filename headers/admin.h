@@ -24,8 +24,6 @@ public:
     const std::string &getAdminID() const;
     const std::string &getPassword() const;
 
-    bool login() const;
-    
 private:
     std::string adminID;
     std::string password;

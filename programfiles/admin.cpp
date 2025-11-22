@@ -16,32 +16,6 @@ void Admin::createAccount(const Customer &customer) {
     accountService.createAccount(customer);
 }
 
-//Login
-bool Admin::login() const
-{
-    bool result = false;
-    string name;
-    string password;
-    while(true)
-    {
-        cout << "Please enter your username: ";
-        cin >> name;
-        cout << "Please enter your password: ";
-        cin >> password;
-
-        if(name == getAdminID() && password == getPassword())
-        {
-            result = true;
-            break;
-        }
-        else
-        {
-            cout << "Your username or password is incorrect, please try again.";
-        };
-    }    
-    return result;
-}
-
 // View all accounts (returns a list of all accounts)
 void Admin::viewAllAccounts() {
     accountService.viewAllAccounts();

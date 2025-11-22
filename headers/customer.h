@@ -21,8 +21,6 @@ public:
     const std::string &getEmail() const;
     const std::vector<int> &getAccountNumbers() const; // vector of account numbers
 
-    bool login() const;
-
 private:
     std::string name;
     std::string customerID;
