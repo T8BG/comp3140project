@@ -22,16 +22,29 @@ int main() {
         "123-456-6788","test@gmail.com",initialAccounts);
 
     // Create a new admin object
-    Admin admin("Admin1", "001", accountService);
+    Admin admin("Admin1", "password", accountService);
 
     // Admin then creates an account for the customer
     admin.createAccount(customer);
 
+    // print all accounts
     std::cout << "All accounts: " << std::endl;
     admin.viewAllAccounts();
+
+    // Admin login
     std::cout << std::endl << "=== Admin Login ===" << std::endl;
     bool loginResult = authService.authenticateAdmin(admin);
     cout << "Admin login result: " << loginResult << endl;
+
+    // Testing delete account
+    std::cout << std::endl << "=== Testing Delete Account ===" << std::endl;
+    std::cout << "Attempting to delete account 1000..." << std::endl;
+    admin.deleteAccount(1000);
     
+    std::cout << std::endl << "All accounts after deletion: " << std::endl;
+    admin.viewAllAccounts();
+    
+
+
     return 0;
 }

@@ -30,3 +30,13 @@ int AccountService::generateAccountNumber() const {
 void AccountService::viewAllAccounts() {
     accountRepository.viewAllAccounts();
 }
+
+// deleteAccount method
+void AccountService::deleteAccount(int accountNumber) {
+    if (accountRepository.deleteAccount(accountNumber)) {
+        std::cout << "Account " << accountNumber << " deleted :)" << std::endl;
+    } 
+    else {
+        std::cout << "Account " << accountNumber << " not found :(" << std::endl;
+    }
+}

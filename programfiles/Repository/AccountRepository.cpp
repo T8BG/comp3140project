@@ -21,3 +21,16 @@ void AccountRepository::viewAllAccounts() const {
     }
 }
 
+// Method to delete an account usin the account number from the accountsList vectir
+bool AccountRepository::deleteAccount(int accountNumber) {
+    // Iterate through the accountsList and find the machting account number
+    for (auto i = accountsList.begin(); i != accountsList.end(); ++i) {
+        if (i->getAccountNumber() == accountNumber) {
+            // found it, delete and return true
+            accountsList.erase(i); 
+            return true; 
+        }
+    }
+    return false; // account not found
+}
+
