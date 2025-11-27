@@ -9,15 +9,17 @@ void AccountRepository::save(const Account &account) {
 
 // Method to get all accounts numbers from the accountsList
 void AccountRepository::viewAllAccounts() const {
+
     if (accountsList.empty()) {
-        cout << "No accounts found." << endl;
+        cout << "No accounts found" << endl;
         return;
     }
     
-    cout << "Account Number\tAccount Holder Name" << endl;
-    cout << "-----------------------------------" << endl;
+    // print all accounts and their attributes (balnce etc)
+    cout << "Account Number \t Account Holder Name \t Balance" << endl;
+    cout << "-----------------------------------------------" << endl;
     for (const auto &account : accountsList) {
-        cout << account.getAccountNumber() << "\t\t" << account.getName() << endl;
+        cout << account.getAccountNumber() << "\t\t" << account.getName() << "\t\t$" << account.getBalance() << endl;
     }
 }
 
@@ -32,5 +34,17 @@ bool AccountRepository::deleteAccount(int accountNumber) {
         }
     }
     return false; // account not found
+}
+
+// Method to find an account by account number (returns pointer of account object or noll if not found)
+// pointer is needed so we can access/modify individual account attributes like balance, etc
+Account* AccountRepository::findByAccountNumber(int accountNumber) {
+    // iterate through accounts and find the matching account number
+    for (auto &account : accountsList) {
+        if (account.getAccountNumber() == accountNumber) {
+            return &account; 
+        }
+    }
+    return nullptr; // account not found
 }
 

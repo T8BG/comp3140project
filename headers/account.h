@@ -14,12 +14,14 @@ public:
     // Getters
     int getAccountNumber() const;
     const std::string &getName() const;
-
+    float getBalance() const;
     
+    void setBalance(float balance);
 
 private:
     int accountNumber;
     std::string name;
+    float balance;
 };
 
 #endif
