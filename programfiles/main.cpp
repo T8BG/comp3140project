@@ -17,6 +17,10 @@ int main() {
     AccountService accountService(accountRepository);
     AuthenticationService authService;
     TransferService transferService(transactionRepository, accountRepository);
+
+    // Variables for menu
+    int acctType;
+    int menuSelect;
     
     // All new customers will start with no accounts (an empty list)
     std::vector<int> initialAccounts;
@@ -59,11 +63,6 @@ int main() {
     std::cout << std::endl << "View all tansactions for account" << std::endl;
     transferService.transactionHistory(testAccount1);
 
-    // Admin login
-    std::cout << std::endl << "=== Admin Login ===" << std::endl;
-    bool loginResult = authService.authenticateAdmin(admin);
-    cout << "Admin login result: " << loginResult << endl;
-
     // Testing delete account
     std::cout << std::endl << "=== Testing Delete Account ===" << std::endl;
     std::cout << "Attempting to delete account 1000..." << std::endl;
@@ -72,7 +71,133 @@ int main() {
     std::cout << std::endl << "All accounts after deletion: " << std::endl;
     admin.viewAllAccounts();
     
+    //MAIN MENU PROMPTING
+    while(true)
+    {
+        // Select type of account
+        while(true)
+        {
+            cout << "What account type would you like to log into?";
+            cout << "1. Admin";
+            cout << "2. Customer";
+            cout << "3. Register";
+            cin >> acctType;
+            if(acctType == 1 || acctType == 2)
+            {
+                break;
+            }
+            else
+            {
+                cout << "Please enter either a '1' or a '2'";
+            }
+        }
+        
+        // Log in
+        while(true)
+        {
+            if(acctType == 1)
+            {
+                // Admin login
+                std::cout << std::endl << "=== Admin Login ===" << std::endl;
+                bool loginResult = authService.authenticateAdmin(admin);
+                if(loginResult == true)
+                {
+                    break;
+                }
+                else
+                {
+                    cout << "Either the username or password is incorrect.";
+                }
+            }
+            else if(acctType == 2)
+            {
+                std::cout << std::endl << "=== Customer Login ===" << std::endl;
+                bool loginResult = authService.authenticateCustomer(customer);
+                if(loginResult == true)
+                {
+                    break;
+                }
+                else
+                {
+                    cout << "Either the username or password is incorrect.";
+                }
 
+            }
+        }
+
+        //Main menu
+        cout << "Please enter your selection.";
+
+        // Admin selection
+        if(acctType == 1)
+        {
+            cout << "1. Create User Account";
+            cout << "2. Delete User Account";
+            cout << "3. View Accounts";
+            cout << "4. Log out";
+            cout << "9. Exit Program";
+        }
+
+        // Customer selection
+        if(acctType == 2)
+        {
+            cout << "1. Deposit funds";
+            cout << "2. Withdraw funds";
+            cout << "3. Transfer funds";
+            cout << "4. View Transaction History";
+            cout << "5. Log out";
+            cout << "9. Exit Program";
+        }
+        while(true)
+        {
+            cin >> menuSelect;
+
+            //Has to be if-else statements in order to break properly.
+            if(menuSelect == 1)
+            {
+
+            }
+            else if(menuSelect == 2)
+            {
+                
+            }
+            else if(menuSelect == 3)
+            {
+                
+            }
+            else if(menuSelect == 4)
+            {
+                if(acctType == 1)
+                {
+                    break;
+                }
+                else
+                {
+                    
+                }
+            }
+            else if(menuSelect == 5)
+            {
+                if(acctType == 1)
+                {
+                    cout << "Please select a valid menu item.";
+                }
+                else
+                {
+                    break;
+                }
+            }
+            else if(menuSelect == 9)
+            {
+                exit(0);
+            }
+            else
+            {
+
+            }
+        }
+
+    }
 
     return 0;
 }
