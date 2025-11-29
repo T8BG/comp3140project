@@ -20,6 +20,9 @@ public:
     const std::string &getPhoneNumber() const;
     const std::string &getEmail() const;
     const std::vector<int> &getAccountNumbers() const; // vector of account numbers
+    
+
+    void setPassword(const std::string &newPassword);
 
 private:
     std::string name;

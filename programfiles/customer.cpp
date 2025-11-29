@@ -19,3 +19,8 @@ const std::string &Customer::getAddress() const { return address; }
 const std::string &Customer::getPhoneNumber() const { return phoneNumber; }
 const std::string &Customer::getEmail() const { return email; }
 const std::vector<int> &Customer::getAccountNumbers() const { return accountNumbers; } // returns a list of account numbers associated with the customer
+
+
+void Customer::setPassword(const std::string &newPassword) {
+    password = newPassword;
+}
