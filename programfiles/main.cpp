@@ -21,6 +21,9 @@ int main() {
     // Variables for menu
     int acctType;
     int menuSelect;
+    int acctNum;
+    int acctTransNum;
+    double value;
     
     // All new customers will start with no accounts (an empty list)
     std::vector<int> initialAccounts;
@@ -39,34 +42,12 @@ int main() {
     admin.createAccount(customer);
     admin.createAccount(customer2);
     std::cout << std::endl;
-    
-    // print all accounts
-    std::cout << "All accounts: " << std::endl;
-    admin.viewAllAccounts();
-    std::cout << std::endl;
 
-    int testAccount1 = 1000;
-    // deposit $500
-    transferService.deposit(testAccount1, 500.0);
     
-    // withdraw $300
-    transferService.withdraw(testAccount1, 300.0);
     
     std::cout << std::endl << "accounts after withdrawal: " << std::endl;
     admin.viewAllAccounts();
     std::cout << std::endl;
-    
-    // transfer $200 from account 1000 to account 1001
-    transferService.transfer(testAccount1, 1001, 200.0);
-    
-    // Testing view all transactions for account
-    std::cout << std::endl << "View all tansactions for account" << std::endl;
-    transferService.transactionHistory(testAccount1);
-
-    // Testing delete account
-    std::cout << std::endl << "=== Testing Delete Account ===" << std::endl;
-    std::cout << "Attempting to delete account 1000..." << std::endl;
-    admin.deleteAccount(1000);
     
     std::cout << std::endl << "All accounts after deletion: " << std::endl;
     admin.viewAllAccounts();
@@ -155,15 +136,57 @@ int main() {
             //Has to be if-else statements in order to break properly.
             if(menuSelect == 1)
             {
+                if(acctType == 1)
+                {
 
+                }
+                else
+                {
+                    cout << "Please enter account number that you wish to deposit into.";
+                    cin >> acctNum;
+                    cout << "Please enter how much you wish to deposit.";
+                    cin >> value;
+                    transferService.deposit(acctNum, value);
+                }
             }
             else if(menuSelect == 2)
             {
-                
+                if(acctType == 1)
+                {
+                    // delete account
+                    std::cout << std::endl << "=== Delete Account ===" << std::endl;
+                    std::cout << "Please enter user account number." << std::endl;
+                    cin >> acctNum;
+                    admin.deleteAccount(acctNum);
+                }
+                else
+                {
+                    cout << "Please enter account number that you wish to withdraw from.";
+                    cin >> acctNum;
+                    cout << "Please enter how much you wish to deposit";
+                    cin >> value;
+                    transferService.withdraw(acctNum, value);
+                }
             }
             else if(menuSelect == 3)
             {
-                
+                if(acctType == 1)
+                {
+                    // print all accounts
+                    std::cout << "All accounts: " << std::endl;
+                    admin.viewAllAccounts();
+                    std::cout << std::endl;
+                }
+                else
+                {
+                    cout << "Please enter account nmber that you wish to transfer from.";
+                    cin >> acctNum;
+                    cout << "Please enter the account number that you wish to transfet to.";
+                    cin >> acctTransNum;
+                    cout << "Please enter how much you wish to transfer.";
+                    cin >> value;
+                    transferService.transfer(acctNum, acctTransNum, value);
+                }
             }
             else if(menuSelect == 4)
             {
@@ -173,7 +196,11 @@ int main() {
                 }
                 else
                 {
-                    
+                    cout << "Which account would you like to see the transactions from?";
+                    cin >> acctNum;
+
+                    std::cout << std::endl << "View all tansactions for account" << std::endl;
+                    transferService.transactionHistory(acctNum);
                 }
             }
             else if(menuSelect == 5)
@@ -193,7 +220,7 @@ int main() {
             }
             else
             {
-
+                cout << "Please select a valid menu item."
             }
         }
 
