@@ -9,7 +9,6 @@ int maxFailCount = 3;
 
 // authenticate an admin login
 bool AuthenticationService::authenticateAdmin(const Admin &admin) const {
-    bool result = false;
     string username;
     string password;
 
@@ -20,8 +19,7 @@ bool AuthenticationService::authenticateAdmin(const Admin &admin) const {
         getCredentials(username, password);
         
         if(username == admin.getAdminID() && password == admin.getPassword()) {
-            result = true;
-            break;
+            return true;
         }
         else {
             cout << "Your username or password is incorrect, please try again." << endl;
@@ -33,13 +31,11 @@ bool AuthenticationService::authenticateAdmin(const Admin &admin) const {
             return false;
         }
     }
-    
-    return result;
+
 }
 
 // authenticate customer login
 bool AuthenticationService::authenticateCustomer(const Customer &customer) const {
-    bool result = false;
     string username;
     string password;
 
@@ -49,8 +45,7 @@ bool AuthenticationService::authenticateCustomer(const Customer &customer) const
         getCredentials(username, password);
         
         if(username == customer.getCustomerID() && password == customer.getPassword()) {
-            result = true;
-            break;
+            return true;
         }
         else {
             cout << "Your username or password is incorrect, please try again." << endl;
@@ -64,7 +59,6 @@ bool AuthenticationService::authenticateCustomer(const Customer &customer) const
         }
     }
     
-    return result;
 }
 
 // helper method to get username and password from user
