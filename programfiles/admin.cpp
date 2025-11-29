@@ -21,6 +21,11 @@ void Admin::viewAllAccounts() {
     accountService.viewAllAccounts();
 }
 
+// Delete an account by account number will use the Accountservices class
+void Admin::deleteAccount(int accountNumber) {
+    accountService.deleteAccount(accountNumber);
+}
+
 //getters
 const std::string &Admin::getAdminID() const {return adminID;}
 const std::string &Admin::getPassword() const {return password;}

@@ -5,13 +5,15 @@ using namespace std;
 // Parameterized Constructor
 Account::Account(int accountNumber, const std::string &name)
     : accountNumber(accountNumber),
-      name(name) {
+      name(name),
+      balance(0.0) {
 }
 
 // Default Constructor
 Account::Account()
     : accountNumber(0),
-      name("") {
+      name(""),
+      balance(0.0) {
 }
 
 // Getters
@@ -21,5 +23,14 @@ int Account::getAccountNumber() const {
 
 const std::string &Account::getName() const {
     return name;
+}
+
+float Account::getBalance() const {
+    return balance;
+}
+
+// Setters
+void Account::setBalance(float balance) {
+    this->balance = balance;
 }
 

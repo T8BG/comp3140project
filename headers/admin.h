@@ -20,6 +20,9 @@ public:
     // View all accounts (returns a list of all accounts)
     void viewAllAccounts();
 
+    // Delete an account by account number
+    void deleteAccount(int accountNumber);
+
     //getters
     const std::string &getAdminID() const;
     const std::string &getPassword() const;

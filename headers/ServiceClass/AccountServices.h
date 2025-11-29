@@ -12,7 +12,7 @@ public:
     // createAccount, generateAccountNumber, deleteAccount methods 
     void createAccount(const Customer &customer);
     int generateAccountNumber() const;
-    void deleteAccount(Customer &customer);
+    void deleteAccount(int accountNumber);
 
     // View all accounts (returns a list of all accounts)
     void viewAllAccounts();
