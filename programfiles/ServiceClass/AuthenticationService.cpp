@@ -4,47 +4,61 @@
 #include <iostream>
 using namespace std;
 
+// max fails
+int maxFailCount = 3;
+
 // authenticate an admin login
 bool AuthenticationService::authenticateAdmin(const Admin &admin) const {
-    bool result = false;
     string username;
     string password;
+
+    int failCount = 0;
 
     // call the getCredentials method to get the username and password from the user
     while(true) {
         getCredentials(username, password);
         
         if(username == admin.getAdminID() && password == admin.getPassword()) {
-            result = true;
-            break;
+            return true;
         }
         else {
             cout << "Your username or password is incorrect, please try again." << endl;
+            failCount++;   
+        }
+
+        if(failCount >= maxFailCount) {
+            cout << "You have been locked out of the system for 3 attempts, please try again later." << endl;
+            return false;
         }
     }
-    
-    return result;
+
 }
 
 // authenticate customer login
 bool AuthenticationService::authenticateCustomer(const Customer &customer) const {
-    bool result = false;
     string username;
     string password;
+
+    int failCount = 0;
     
     while(true) {
         getCredentials(username, password);
         
         if(username == customer.getCustomerID() && password == customer.getPassword()) {
-            result = true;
-            break;
+            return true;
         }
         else {
             cout << "Your username or password is incorrect, please try again." << endl;
+            failCount++;
+        }
+
+
+        if(failCount >= maxFailCount) {
+            cout << "You have been locked out of the system for 3 attempts, please try again later." << endl;
+            return false;
         }
     }
     
-    return result;
 }
 
 // helper method to get username and password from user
