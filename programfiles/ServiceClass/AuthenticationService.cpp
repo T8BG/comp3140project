@@ -4,11 +4,16 @@
 #include <iostream>
 using namespace std;
 
+// max fails
+int maxFailCount = 3;
+
 // authenticate an admin login
 bool AuthenticationService::authenticateAdmin(const Admin &admin) const {
     bool result = false;
     string username;
     string password;
+
+    int failCount = 0;
 
     // call the getCredentials method to get the username and password from the user
     while(true) {
@@ -20,6 +25,12 @@ bool AuthenticationService::authenticateAdmin(const Admin &admin) const {
         }
         else {
             cout << "Your username or password is incorrect, please try again." << endl;
+            failCount++;   
+        }
+
+        if(failCount >= maxFailCount) {
+            cout << "You have been locked out of the system for 3 attempts, please try again later." << endl;
+            return false;
         }
     }
     
@@ -31,6 +42,8 @@ bool AuthenticationService::authenticateCustomer(const Customer &customer) const
     bool result = false;
     string username;
     string password;
+
+    int failCount = 0;
     
     while(true) {
         getCredentials(username, password);
@@ -41,6 +54,13 @@ bool AuthenticationService::authenticateCustomer(const Customer &customer) const
         }
         else {
             cout << "Your username or password is incorrect, please try again." << endl;
+            failCount++;
+        }
+
+
+        if(failCount >= maxFailCount) {
+            cout << "You have been locked out of the system for 3 attempts, please try again later." << endl;
+            return false;
         }
     }
     
