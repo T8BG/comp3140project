@@ -7,4 +7,9 @@ How to Run:
 
 3. Then execute the exe file in the terminal: .\bank_app.exe
 
-You should see the account created and a list of all account numbers
+To login as admin: 
+    username: Admin1
+    password: password
+To login as customer: 
+    Customer ID: T001 (which is John Doe) or T002 (which is John Wick)
+    Password: password
